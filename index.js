@@ -3,34 +3,36 @@ let stopLight = document.getElementById('stopLight')
 let stopButtonClick=0;
 
 stopButton.addEventListener("click", function(){
-  if(!stopLight.classList.contains("stop")){
-    console.log("Stop Bulb on");
-  }else{
-    console.log("Stop Bulb off")
-  }
-    stopLight.classList.toggle('stop');
+  // if(stopLight.classList.contains("stop")){
+  //   console.log("Stop Bulb off");
+  // }else{
+  //   console.log("Stop Bulb on")
+  // }
+  stopLight.classList.toggle('stop');
 })
 let slowButton = document.getElementById('slowButton')
 let slowLight = document.getElementById('slowLight')
 // let slowButtonClick=0;
 
 slowButton.addEventListener("click", function(){
-if(!slowLight.classList.contains("slow")){
-  console.log("Slow Bulb on");
-}else{
-  console.log("Slow Bulb off")
-}slowLight.classList.toggle('slow');  
+// if(slowLight.classList.contains("slow")){
+//   console.log("Slow Bulb off");
+// }else{
+//   console.log("Slow Bulb on")
+// }
+slowLight.classList.toggle('slow');  
 })
 
 let goButton = document.getElementById('goButton')
 let goLight = document.getElementById('goLight')
 
 goButton.addEventListener("click", function(){
-  if(!goLight.classList.contains("go")){
-    console.log("Go bulb on");
-  }else{
-    console.log("Go bulb off")
-  }goLight.classList.toggle('go');  
+  // if(goLight.classList.contains("go")){
+  //   console.log("Go bulb off");
+  // }else{
+  //   console.log("Go bulb on")
+  // }
+  goLight.classList.toggle('go');  
   })
 
 goButton.addEventListener(
@@ -65,16 +67,30 @@ slowButton.addEventListener(
   }
 )
 
+let controls = document.getElementById('controls');
 
-
-// const lightLog = document.querySelectorAll('div')
-
-// lightLog.forEach(lightLog =>{
-//   if(lightLog.textContent="go"){
-//   console.log(`Go light on`)   
-//     }else if(lightLog.textContent='stop'){
-//     console.log(`Stoplight on`)
-//     }else if(lightLog.textContent='slow'){
-//     console.log(`Slow light on`)
-//   }
-// })
+document.body.addEventListener('click', function (event){
+if (event.target.className !=='button'){
+return;
+}
+if (event.target.id === 'stopButton'){
+  if(stopLight.classList.contains('stop')){
+    console.log(`${event.target.textContent} bulb on`)
+  }
+  else{
+    console.log(`${event.target.textContent} bulb off`)
+  }
+}else if(event.target === slowButton){
+  if (slowLight.classList.contains("slow")){
+    console.log(`${event.target.textContent} bulb on`)
+  }else {
+    console.log(`${event.target.textContent} bulb off`)
+  }
+}else if(event.target === goButton){
+  if (goLight.classList.contains("go")){
+    console.log(`${event.target.textContent} bulb on`)
+  }else{
+    console.log(`${event.target.textContent} bulb off`)
+  }
+}
+})
